@@ -1,0 +1,27 @@
+.popup {
+
+    div {
+        border-bottom-color: var(--secondary) !important;
+    }
+
+    div:last-child {
+        background-color: var(--secondary);
+    }
+
+    &.top div {
+        border-bottom-color: var(--primary) !important;
+    }
+
+    &.top div:last-child {
+        background-color: var(--primary) !important;
+        color: var(--secondary);
+
+        button {
+            color: var(--secondary);
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+}

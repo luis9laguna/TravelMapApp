@@ -1,0 +1,55 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: fixed;
+  margin-top: 8rem;
+  z-index: 30;
+  top: 0;
+  animation: slide-down 300ms ease-out forwards;
+
+  &.closeWhite>svg {
+    color: var(--secondary);
+  }
+
+  &>svg {
+    position: absolute;
+    color: var(--primary);
+    right: 10px;
+    top: 10px;
+    font-size: var(--size-4);
+    cursor: pointer;
+  }
+}
+
+.bgNone {
+  padding: 0;
+  background-color: transparent;
+  width: initial;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+    margin-top: 5rem;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
