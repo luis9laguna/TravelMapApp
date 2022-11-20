@@ -1,7 +1,6 @@
 import styles from './RegisterForm.module.scss'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
-import ClipLoader from "react-spinners/ClipLoader";
 import { useAuth } from '../../context/auth/authContext';
 import { MdEmail, MdLock, MdLockClock, MdPerson } from 'react-icons/md';
 
@@ -9,7 +8,7 @@ import { MdEmail, MdLock, MdLockClock, MdPerson } from 'react-icons/md';
 const RegisterForm = ({ setAuthForm }) => {
 
 
-  const { userRegister, fetchLoading } = useAuth()
+  const { userRegister } = useAuth()
 
 
   const newClientSchema = Yup.object().shape({
@@ -105,9 +104,7 @@ const RegisterForm = ({ setAuthForm }) => {
               </div>
 
               <button type="submit" disabled={isSubmitting || !(isValid && dirty)}>
-                {fetchLoading ?
-                  <ClipLoader color="#f5f5f5" loading={fetchLoading} size={30} />
-                  : 'Registrar'}
+                Registrar
               </button>
             </Form>
             <span onClick={() => setAuthForm('login')}>¿Do you have an account? click here!</span>

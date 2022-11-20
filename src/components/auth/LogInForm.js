@@ -1,7 +1,6 @@
 import styles from './LogInForm.module.scss'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
-import ClipLoader from "react-spinners/ClipLoader";
 import GoogleLogin from 'react-google-login';
 import { useAuth } from '../../context/auth/authContext';
 import { MdEmail, MdLock } from 'react-icons/md';
@@ -9,7 +8,7 @@ import { MdEmail, MdLock } from 'react-icons/md';
 
 const LoginForm = ({ setAuthForm }) => {
 
-    const { logIn, fetchLoading, logInGoogle } = useAuth()
+    const { logIn, logInGoogle } = useAuth()
 
     const newClientSchema = Yup.object().shape({
         email: Yup.string()
@@ -61,9 +60,7 @@ const LoginForm = ({ setAuthForm }) => {
                             </div>
 
                             <button type="submit" disabled={isSubmitting || !(isValid && dirty)}>
-                                {fetchLoading ?
-                                    <ClipLoader color='#f5f5f5' loading={fetchLoading} size={25} />
-                                    : 'Ingresar'}
+                                Ingresar
                             </button>
                         </Form>
                         <span>You cant try using Google</span>
@@ -72,9 +69,7 @@ const LoginForm = ({ setAuthForm }) => {
                             clientId={process.env.REACT_APP_GOOGLE_ID}
                             render={renderProps => (
                                 <button disabled={isSubmitting} onClick={renderProps.onClick} className={styles.google}>
-                                    {fetchLoading ?
-                                        <ClipLoader color='#f5f5f5' loading={fetchLoading} size={25} />
-                                        : 'G'}
+                                    G
                                 </button>
                             )}
                             onSuccess={handleLogin}

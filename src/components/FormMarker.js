@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import styles from './FormMarker.module.scss'
-import { ClipLoader } from 'react-spinners';
 import Cookies from 'js-cookie';
 import clientAxios from '../config/axios';
 import { toast } from 'react-toastify';
@@ -30,11 +29,6 @@ const FormMarker = ({ newPlace, map, setNewPlace }) => {
             .required('Rate is required.'),
     })
 
-
-    // console.log(editPin)
-
-
-    console.log(newPlace)
     const formSubmissionHandler = async (values) => {
         try {
             let response;
@@ -47,10 +41,14 @@ const FormMarker = ({ newPlace, map, setNewPlace }) => {
             }
 
             if (response.data.ok) {
-                updateAllPins(response.data.pin, true);
 
-                if (newPlace) setNewPlace(null);
-                else setEditPin(null);
+                if (newPlace) {
+                    setNewPlace(null)
+                    updateAllPins(response.data.pin, true);
+                } else {
+                    setEditPin(null)
+                    updateAllPins(response.data.pin, true, true);
+                }
                 updatePinsUser(response.data.pin, 'pins')
                 toast.success('Your pin has been created successfully!')
             } else {

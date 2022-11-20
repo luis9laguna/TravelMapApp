@@ -1,0 +1,121 @@
+.formContainer {
+  width: 600px;
+  background-color: var(--light);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formContainer h1 {
+  margin-top: 1rem;
+}
+.formContainer form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.formContainer form .containerInput {
+  display: flex;
+  align-items: center;
+  flex: 1 1 40%;
+  margin: 1rem;
+}
+.formContainer form .containerInput .inputError {
+  background-color: rgba(255, 0, 0, 0.281) !important;
+}
+.formContainer form .containerInput svg {
+  margin-right: 0.5rem;
+  font-size: var(--size-3);
+}
+.formContainer form .acceptTerms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.formContainer form .acceptTerms label {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+}
+.formContainer form .acceptTerms label input {
+  margin-left: 0.5rem;
+}
+.formContainer form .acceptTerms ~ div {
+  margin: 0;
+}
+.formContainer form .containerInput > input,
+.formContainer form .acceptTerms > input {
+  height: 2.5rem;
+  border: 1px solid rgb(184, 170, 170);
+  background-color: transparent;
+  font-size: var(--size-1);
+  padding-left: 15px;
+  width: 210px;
+}
+.formContainer form .error {
+  overflow-wrap: break-word;
+  font-size: 0.8rem;
+  width: 210px;
+  position: absolute;
+  margin-top: 3.5rem;
+  margin-left: 2.3rem;
+  color: red;
+  text-align: center;
+}
+.formContainer form button {
+  width: 130px !important;
+  margin: 1.5rem 0;
+  height: 2.5rem;
+  font-size: var(--size-1);
+  font-weight: bold;
+  border-radius: 2rem;
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: var(--light);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.formContainer form button:hover {
+  background-color: var(--light);
+  color: var(--primary);
+}
+.formContainer form button:disabled, .formContainer form button:disabled:hover, .formContainer form button:disabled:active {
+  background-color: rgb(148, 124, 124);
+  border-color: rgb(148, 124, 124);
+  color: var(--secondary);
+  cursor: not-allowed;
+}
+.formContainer form button span {
+  margin-top: 0.2rem;
+}
+.formContainer span {
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+.formContainer span:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    width: 100%;
+    border-radius: 0;
+  }
+  .formContainer form {
+    display: flex;
+    flex-direction: column;
+  }
+  .formContainer form .containerInput {
+    flex: initial;
+  }
+  .formContainer form .acceptTerms {
+    width: 100%;
+  }
+  .formContainer form .acceptTerms .error {
+    width: initial;
+    margin-top: 2.5rem;
+  }
+}/*# sourceMappingURL=RegisterForm.module.css.map */
