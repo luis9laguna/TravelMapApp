@@ -16,7 +16,7 @@
         background-color: var(--primary) !important;
         color: var(--secondary);
 
-        button {
+        div~button {
             color: var(--secondary);
 
             &:hover {
