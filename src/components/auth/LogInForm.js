@@ -4,7 +4,8 @@ import * as Yup from 'yup'
 import GoogleLogin from 'react-google-login';
 import { useAuth } from '../../context/auth/authContext';
 import { MdEmail, MdLock } from 'react-icons/md';
-
+import { gapi } from 'gapi-script';
+import { useEffect } from 'react';
 
 const LoginForm = ({ setAuthForm }) => {
 
@@ -17,6 +18,14 @@ const LoginForm = ({ setAuthForm }) => {
         password: Yup.string()
             .required('Password is required.')
     })
+
+
+    useEffect(() => {
+        function start() {
+            gapi.client.init({ clientId: process.env.REACT_APP_GOOGLE_ID, scope: '' })
+        };
+        gapi.load('client:auth2', start);
+    });
 
     //HANDLER GOOGLE
     const handleLogin = async googleData => logInGoogle({ token: googleData.tokenId })

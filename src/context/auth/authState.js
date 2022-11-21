@@ -102,21 +102,26 @@ const AuthState = ({ children }) => {
     }
 
     const logInGoogle = async token => {
-        const asd = await clientAxios.post('auth/google', token)
-        console.log(asd)
-        // if (response.ok) {
-        //     dispatch({
-        //         type: FORM_AUTH,
-        //         payload: {
-        //             email: response.data.user.email,
-        //             token: response.data.token
-        //         }
-        //     })
-        //     toast.success('Has ingresado exitosamente!')
-        //     router.push('/')
-        // } else {
-        //     toast.error('Ha ocurrido un error, intente mas tarde')
-        // }
+
+        try {
+            const response = await clientAxios.post('auth/google', token)
+            if (response.data.ok) {
+                dispatch({
+                    type: FORM_AUTH,
+                    payload: {
+                        user: response.data.user,
+                        token: response.data.token
+                    }
+                })
+                toast.success('You have successfully logged in!')
+            } else {
+                toast.error('An error occured, please try later')
+            }
+        } catch (error) {
+            toast.error('An error occured, please try later')
+
+        }
+
     }
 
 

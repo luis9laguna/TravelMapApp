@@ -82,7 +82,7 @@ const RegisterForm = ({ setAuthForm }) => {
                   name="password"
                   className={errors.password && touched.password ? styles.inputError : ''}
                 />
-                <ErrorMessage name="password" component="div" className={styles.error} />
+                <ErrorMessage name="password" component="div" className={`${styles.error} ${styles.password}`} />
               </div>
 
               <div className={styles.containerInput}>
