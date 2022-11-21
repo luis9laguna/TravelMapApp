@@ -51,6 +51,11 @@ const Card = ({ pin, ownPin, fromModal, setModal }) => {
 
     }
 
+    const handlerUpdate = () => {
+        setEditPin(pin)
+        if (fromModal) goHandler()
+    }
+
 
     const handlerDeletePin = () => {
         Swal.fire({
@@ -104,7 +109,7 @@ const Card = ({ pin, ownPin, fromModal, setModal }) => {
                 <div className={styles.buttons}>
                     {ownPin ?
                         <>
-                            <button onClick={() => setEditPin(pin)} className={styles.edit}><MdEdit /></button>
+                            <button onClick={handlerUpdate} className={styles.edit}><MdEdit /></button>
                             <button onClick={handlerDeletePin} className={styles.delete}><MdDelete /></button>
                         </>
                         :
